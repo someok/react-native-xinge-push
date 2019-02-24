@@ -15,7 +15,7 @@ react-native-xinge-push | 信鸽SDK（Android） | 信鸽SDK（iOS）
 
 ## install
 ```
-npm install --save react-native-xinge-push
+npm install --save https://github.com/PandaQQ/react-native-xinge-push.git
 ```
 
 ## link
