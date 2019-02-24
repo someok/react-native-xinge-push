@@ -1,3 +1,6 @@
+## 简介
+因为项目开发决定采用信鸽推送，鉴于信鸽官方并不支持 React Native，所幸有Jeepeng 推出了 https://github.com/Jeepeng/react-native-xinge-push, 是已经好久没有更新了。同时这个库遇到 https://github.com/Jeepeng/react-native-xinge-push/issues/22 这个问题，所幸https://github.com/wanxsb/react-native-xinge-push 在这个版本已经解决。接下去因为项目会涉及xinge推送的开发以及维护，所以会有些时间帮忙维护下一个库。本人比较熟悉iOS&Android原生开发，同时负责的团队也正在往React Native过渡，希望可以给社区贡献一点力量。
+
 ## TODO
 - [ ] 计划更新 iOS SDK 到 v3.3.5
 - [ ] 计划更新 Android SDK v4.0.5
