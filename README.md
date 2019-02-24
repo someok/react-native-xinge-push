@@ -1,11 +1,12 @@
 ## TODO
+- [ ] 计划更新 iOS SDK 到 v3.3.5
+- [ ] 计划更新 Android SDK v4.0.5
+- [ ] Android 适配文档
 - [x] 升级信鸽Android SDK 到 v3.2.2
 - [x] 适配华为官方推送通道
 - [x] 适配小米官方推送通道
 - [x] 适配魅族官方推送通道
 - [x] 升级信鸽iOS SDK 到 v3.1.0
-- [ ] 计划更新 iOS SDK 到 v3.3.5
-- [ ] 计划更新 Android SDK v4.0.5
 
 ## 版本对照表
 react-native-xinge-push | 信鸽SDK（Android） | 信鸽SDK（iOS）
