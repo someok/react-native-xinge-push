@@ -655,10 +655,14 @@ RCT_EXPORT_METHOD(bindWithTag:tag)
 /**
  绑定账号
  */
-RCT_EXPORT_METHOD(bindWithAccount:account)
+RCT_EXPORT_METHOD(bindWithAccount:account
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
     [[XGPushTokenManager defaultTokenManager] bindWithIdentifier:account type:XGPushTokenBindTypeAccount];
+    resolve([[XGPushTokenManager defaultTokenManager] deviceTokenString]);
 }
+
 
 /**
  解绑标签

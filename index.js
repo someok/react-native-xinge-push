@@ -46,12 +46,7 @@ class XGPush {
 
   static register(account) {
     if (Platform.OS === 'ios') {
-      !!account && XGPushManager.bindWithAccount(account);
-      return XGPushManager.requestPermissions({
-        alert: true,
-        badge: true,
-        sound: true
-      });
+      return XGPushManager.bindWithAccount(account);
     } else {
       if (account) {
         return XGPushManager.bindAccount(account);
