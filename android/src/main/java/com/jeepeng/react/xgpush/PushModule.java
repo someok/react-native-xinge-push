@@ -130,7 +130,7 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
 
             @Override
             public void onFail(Object data, int errCode, String msg) {
-                promise.reject(String.valueOf(errCode), msg);
+                 promise.resolve(data);
             }
         });
     }

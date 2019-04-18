@@ -48,11 +48,7 @@ class XGPush {
     if (Platform.OS === 'ios') {
       return XGPushManager.bindWithAccount(account);
     } else {
-      if (account) {
-        return XGPushManager.bindAccount(account);
-      } else {
-        return XGPushManager.registerPush();
-      }
+       return XGPushManager.registerPush();
     }
   }
 
