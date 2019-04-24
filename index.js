@@ -154,7 +154,7 @@ class XGPush {
    */
   static getToken() {
     if (Platform.OS === 'android') {
-      return XGPushManager.getToken(isEnable);
+      return XGPushManager.getToken();
     } else {
       return Promise.resolve();
     }
