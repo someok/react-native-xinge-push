@@ -370,6 +370,12 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
         XGPushConfig.setMzPushAppKey(this.reactContext, appKey);
     }
 
+
+    @ReactMethod
+    public void initFcm(boolean isEnable){
+        XGPushConfig.enableFcmPush(this, isEnable);
+    }
+
     @ReactMethod
     public void getInitialNotification(Promise promise) {
         WritableMap params = Arguments.createMap();
