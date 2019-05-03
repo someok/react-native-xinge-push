@@ -373,7 +373,7 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
 
     @ReactMethod
     public void initFcm(boolean isEnable){
-        XGPushConfig.enableFcmPush(this, isEnable);
+        XGPushConfig.enableFcmPush(this.reactContext, isEnable);
     }
 
     @ReactMethod
