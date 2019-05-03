@@ -2,9 +2,10 @@
 因为项目开发决定采用信鸽推送，鉴于信鸽官方并不支持 React Native，所幸有Jeepeng 推出了 https://github.com/Jeepeng/react-native-xinge-push, 是已经好久没有更新了。同时这个库遇到 https://github.com/Jeepeng/react-native-xinge-push/issues/22 这个问题，所幸https://github.com/wanxsb/react-native-xinge-push 在这个版本已经解决。接下去因为项目会涉及xinge推送的开发以及维护，所以会有些时间帮忙维护下一个库。本人比较熟悉iOS&Android原生开发，同时负责的团队也正在往React Native过渡，希望可以给社区贡献一点力量。
 
 ## TODO
-- [x] 计划更新 iOS SDK 到 v3.3.5
-- [ ] 计划更新 Android SDK v4.0.5
 - [ ] Android 适配文档
+- [x] 支持Fcm 集成
+- [x] 计划更新 iOS SDK 到 v3.3.5
+- [x] 计划更新 Android SDK v4.3.2 厂商通道
 - [x] 升级信鸽Android SDK 到 v3.2.2
 - [x] 适配华为官方推送通道
 - [x] 适配小米官方推送通道
@@ -141,34 +142,6 @@ AppDelegate.m:
   [[XGPush defaultManager] reportXGNotificationInfo:remoteNotification];
   [XGPushManager didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
-
-// iOS 10 新增 API
-// iOS 10 会走新 API, iOS 10 以前会走到老 API
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-// App 用户点击通知
-// App 用户选择通知中的行为
-// App 用户在通知中心清除消息
-// 无论本地推送还是远程推送都会走这个回调
-- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-	NSLog(@"[XGPush] click notification");
-	if ([response.actionIdentifier isEqualToString:@"xgaction001"]) {
-		NSLog(@"click from Action1");
-	} else if ([response.actionIdentifier isEqualToString:@"xgaction002"]) {
-		NSLog(@"click from Action2");
-	}
-	
-	[[XGPush defaultManager] reportXGNotificationResponse:response];
-	
-	completionHandler();
-}
-
-// App 在前台弹通知需要调用这个接口
-- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-	[[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
-	completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
-}
-#endif
-
 
 @end
 
