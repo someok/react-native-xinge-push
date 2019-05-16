@@ -210,9 +210,9 @@ class XGPush {
     }
   }
   
-  static initFcm(){
+  static initFcm(isEnable = true){
     if(Platform.OS === 'android'){
-      XGPushManager.initFcm();
+      XGPushManager.initFcm(isEnable);
     }
   }
 
