@@ -209,6 +209,13 @@ class XGPush {
       XGPushManager.initMeizu(appId, appKey);
     }
   }
+  
+  static initFcm(){
+    if(Platform.OS === 'android'){
+      XGPushManager.initFcm();
+    }
+  }
+
 
   /**************************** ios only ************************/
 
