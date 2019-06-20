@@ -44,6 +44,13 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
         reactContext.addLifecycleEventListener(this);
         this.reactContext = reactContext;
         registerReceivers();
+
+        XGPushManager.registerPush(this.reactContext);
+        XGPushConfig.setMiPushAppId(this.reactContext, "");
+        XGPushConfig.setMiPushAppKey(this.reactContext, "");
+        XGPushConfig.enableFcmPush(this.reactContext, true);
+        XGPushConfig.enableOtherPush(this.reactContext, true);
+
     }
 
     @Override
@@ -378,30 +385,24 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
 
     @ReactMethod
     public void getInitialNotification(Promise promise) {
+
         WritableMap params = Arguments.createMap();
-        Activity activity = getCurrentActivity();
-        Log.d("getInitialNotification", ">>>>>>>>>>>>>>>>>");
-        if (activity != null) {
-            Intent intent = activity.getIntent();
-            XGPushClickedResult result = XGPushManager.onActivityStarted(activity);
-            if (result != null) {
-                Log.d("getInitialNotification", result.getContent());
+        try {
+            PushMessage mymessage =  PushMessage.getInstance();
+            if(mymessage.hasValue) {
+                params.putString("title",  mymessage.getTitle());
+                params.putString("content",  mymessage.getContent());
+                params.putString("custom_content",  mymessage.getCustomContent());
+                Log.d("getInitialNotification", "title: "+ mymessage.getTitle()+ "content: " + mymessage.getContent() + "custom_content: " + mymessage.getCustomContent());
+                mymessage.clearAll();
+                promise.resolve(params);
             }
-            try {
-                if(intent != null && intent.hasExtra("protect")) {
-                    String title = Rijndael.decrypt(intent.getStringExtra("title"));
-                    String content = Rijndael.decrypt(intent.getStringExtra("content"));
-                    String customContent = Rijndael.decrypt(intent.getStringExtra("custom_content"));
-                    params.putString("title",  title);
-                    params.putString("content",  content);
-                    params.putString("custom_content",  customContent);
-                    Log.d("getInitialNotification", content);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            Log.d("getInitialNotification", "Have Exception");
+            e.printStackTrace();
+            promise.resolve(null);
         }
-        promise.resolve(params);
+
     }
 
     @ReactMethod
