@@ -387,7 +387,9 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
     public void getInitialNotification(Promise promise) {
 
         WritableMap params = Arguments.createMap();
+        Log.d("getInitialNotification", ">>>>>>>>>>>>>>>>>");
         try {
+
             PushMessage mymessage =  PushMessage.getInstance();
             if(mymessage.hasValue) {
                 params.putString("title",  mymessage.getTitle());
@@ -397,6 +399,10 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
                 mymessage.clearAll();
                 promise.resolve(params);
             }
+            else {
+                promise.resolve(null);
+            }
+
         } catch (Exception e) {
             Log.d("getInitialNotification", "Have Exception");
             e.printStackTrace();

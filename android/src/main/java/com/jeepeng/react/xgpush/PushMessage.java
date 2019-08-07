@@ -1,4 +1,5 @@
 package com.jeepeng.react.xgpush;
+import android.util.Log;
 
 public class PushMessage {
     private static final PushMessage ourInstance = new PushMessage();
@@ -54,4 +55,21 @@ public class PushMessage {
 
     private PushMessage() {
     }
+
+    public void setAllValueIntentUrl (Uri pushUri) {
+
+        if(pushUri != null) {
+
+            String title= pushUri.getQueryParameter("title");
+            String content= pushUri.getQueryParameter("content");
+            String customContent = pushUri.getQueryParameter("custom_content");
+
+            Log.d("XGQQ_PushMessage", "1. " + title);
+            Log.d("XGQQ_PushMessage", "2. " + content);
+            Log.d("XGQQ_PushMessage", "3. " + customContent);
+
+            setAllValue(title, content, customContent);
+        }
+    }
+
 }
