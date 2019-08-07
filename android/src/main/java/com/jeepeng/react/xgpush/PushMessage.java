@@ -1,4 +1,7 @@
 package com.jeepeng.react.xgpush;
+
+import android.net.Uri;
+import android.net.UrlQuerySanitizer;
 import android.util.Log;
 
 public class PushMessage {

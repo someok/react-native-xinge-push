@@ -37,6 +37,8 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
 
     private Context reactContext;
     private int badge = 0;
+    private String XM_ACCESS_ID = null;
+    private String XM_ACCESS_KEY = null;
 
     public PushModule(ReactApplicationContext reactContext) {
         super(reactContext);
