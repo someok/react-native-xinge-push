@@ -46,9 +46,33 @@ public class PushModule extends ReactContextBaseJavaModule implements ActivityEv
         registerReceivers();
 
         XGPushManager.registerPush(this.reactContext);
-        XGPushConfig.setMiPushAppId(this.reactContext, "");
-        XGPushConfig.setMiPushAppKey(this.reactContext, "");
+
+        // Handle MI PUSH CONFIG
+        ////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+        try {
+            ApplicationInfo appInfo = reactContext.getPackageManager().getApplicationInfo(reactContext.getPackageName(),
+                    PackageManager.GET_META_DATA);
+
+            XM_ACCESS_ID = appInfo.metaData.getString("MY_XM_XG_ID");
+            XM_ACCESS_KEY = appInfo.metaData.getString("MY_XM_XG_KEY");
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if((XM_ACCESS_ID  != null && XM_ACCESS_ID.length() != 0) || (XM_ACCESS_KEY != null && XM_ACCESS_KEY.length() != 0)) {
+
+            Log.d("XGQQ", "1. " + XM_ACCESS_ID.replace("XM-", ""));
+            Log.d("XGQQ", "2. " + XM_ACCESS_KEY.replace("XM-",""));
+            XGPushConfig.setMiPushAppId(this.reactContext, XM_ACCESS_ID.replace("XM-", ""));
+            XGPushConfig.setMiPushAppKey(this.reactContext, XM_ACCESS_KEY.replace("XM-",""));
+        }
+        ////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
+
         XGPushConfig.enableFcmPush(this.reactContext, true);
+        XGPushConfig.setHuaweiDebug(true);
         XGPushConfig.enableOtherPush(this.reactContext, true);
 
     }
