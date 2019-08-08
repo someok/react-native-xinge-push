@@ -8,6 +8,9 @@ import android.content.IntentFilter;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
