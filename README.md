@@ -103,7 +103,18 @@ Android 的推送简直就是个无敌大坑啊！！！！！但是终于我还
 </activity>
 ```
 
-- 4. 你已经完成啦～～
+- 4. 在MainActivity 中添加 intent 接受方法
+
+```java
+  @Override
+    public void onCreate(Bundle instance) {
+
+        super.onCreate(instance);
+        //// 集成厂商通道之后，点击推送通知使用 intent 推送内容
+        Uri uri = getIntent().getData();
+        PushMessage.getInstance().setAllValueIntentUrl(uri);
+    }
+```
 
 #### Android intent 测试
 
