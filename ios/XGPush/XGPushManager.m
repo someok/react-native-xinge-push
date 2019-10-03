@@ -15,7 +15,7 @@
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTUtils.h>
 
-NSString *const RCTRemoteNotificationReceived = @"RemoteNotificationReceived";
+NSString *const MYRCTRemoteNotificationReceived = @"RemoteNotificationReceived";
 NSString *const RCTRemoteMessageReceived = @"RemoteMessageReceived";
 
 static NSString *const kLocalNotificationReceived = @"LocalNotificationReceived";
@@ -150,7 +150,7 @@ RCT_EXPORT_MODULE()
                                              object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(handleRemoteNotificationReceived:)
-                                               name:RCTRemoteNotificationReceived
+                                               name:MYRCTRemoteNotificationReceived
                                              object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(handleRegisterUserNotificationSettings:)
@@ -236,7 +236,7 @@ RCT_EXPORT_MODULE()
     }
     NSLog(@"[XGPush] click notification %@", remoteNotification);
     NSDictionary * userInfo = @{@"notification": remoteNotification};
-    [[NSNotificationCenter defaultCenter] postNotificationName:RCTRemoteNotificationReceived
+    [[NSNotificationCenter defaultCenter] postNotificationName:MYRCTRemoteNotificationReceived
                                                         object:self
                                                       userInfo:userInfo];
   [[XGPush defaultManager] reportXGNotificationResponse:response];
@@ -256,7 +256,7 @@ RCT_EXPORT_MODULE()
 + (void)didReceiveRemoteNotification:(NSDictionary *)notification
 {
   NSDictionary *userInfo = @{@"notification": notification};
-  [[NSNotificationCenter defaultCenter] postNotificationName:RCTRemoteNotificationReceived
+  [[NSNotificationCenter defaultCenter] postNotificationName:MYRCTRemoteNotificationReceived
                                                       object:self
                                                     userInfo:userInfo];
 }
@@ -266,7 +266,7 @@ RCT_EXPORT_MODULE()
 {
   NSDictionary *userInfo = @{@"notification": notification, @"completionHandler": completionHandler};
   NSLog(@"%s, notification is %@", __FUNCTION__, notification);
-  [[NSNotificationCenter defaultCenter] postNotificationName:RCTRemoteNotificationReceived
+  [[NSNotificationCenter defaultCenter] postNotificationName:MYRCTRemoteNotificationReceived
                                                       object:self
                                                     userInfo:userInfo];
 }
