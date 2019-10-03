@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D9EBB202345D36200E0F598 /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9EBB1F2345D36200E0F598 /* libXG-SDK.a */; };
 		C50FF02A1D54262A00CEF3D0 /* XGPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C50FF0291D54262A00CEF3D0 /* XGPushManager.m */; };
-		C5D48E341D5428F4004BD09A /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D48E331D5428F4004BD09A /* libXG-SDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +25,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D9EBB1F2345D36200E0F598 /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libXG-SDK.a"; sourceTree = "<group>"; };
 		C50FF0241D54262A00CEF3D0 /* libXGPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXGPush.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50FF0271D54262A00CEF3D0 /* XGPushManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGPushManager.h; sourceTree = "<group>"; };
 		C50FF0291D54262A00CEF3D0 /* XGPushManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XGPushManager.m; sourceTree = "<group>"; };
 		C5D48E311D5428D2004BD09A /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGPush.h; path = SDK/XGPush.h; sourceTree = "<group>"; };
-		C5D48E331D5428F4004BD09A /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libXG-SDK.a"; path = "SDK/libXG-SDK.a"; sourceTree = "<group>"; };
 		C5D48E761D54731F004BD09A /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "../../react-native/React/build/Debug-iphoneos/libReact.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5D48E341D5428F4004BD09A /* libXG-SDK.a in Frameworks */,
+				2D9EBB202345D36200E0F598 /* libXG-SDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +83,8 @@
 		C5D48E321D5428DE004BD09A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D9EBB1F2345D36200E0F598 /* libXG-SDK.a */,
 				C5D48E761D54731F004BD09A /* libReact.a */,
-				C5D48E331D5428F4004BD09A /* libXG-SDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +128,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = C50FF01B1D54262A00CEF3D0;
@@ -245,6 +246,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK/**",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = XGPush;
@@ -263,6 +265,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDK/**",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = XGPush;
