@@ -1,25 +1,25 @@
 {
-  "name": "react-native-xinge-push",
-  "version": "0.8.0",
-  "description": "Xinge push for react-native",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wanxsb/react-native-xinge-push.git"
-  },
-  "keywords": [
-    "xinge",
-    "xinge-push",
-    "xgpush",
-    "react-native"
-  ],
-  "author": "Jeepeng",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/wanxsb/react-native-xinge-push/issues"
-  },
-  "homepage": "https://github.com/wanxsb/react-native-xinge-push#readme"
+    "name": "@someok/react-native-xinge-push",
+    "version": "0.9.0",
+    "description": "Xinge push for react-native",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/someok/react-native-xinge-push.git"
+    },
+    "keywords": [
+        "xinge",
+        "xinge-push",
+        "xgpush",
+        "react-native"
+    ],
+    "author": "Jeepeng",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/someok/react-native-xinge-push/issues"
+    },
+    "homepage": "https://github.com/someok/react-native-xinge-push#readme"
 }
